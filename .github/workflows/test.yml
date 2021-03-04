@@ -33,7 +33,24 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      # Runs a single command using the runners shell
+
+      - name: Cache .gradle/caches
+        uses: actions/cache@v1
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: ${{ runner.os }}-gradle-
+
+      - name: Cache .gradle/wrapper
+        uses: actions/cache@v1
+        with:
+          path: ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle-wrapper-
+
+      - name: Grant execute permission for gradlew
+          run: chmod +x gradlew
+
       - name: test workflow
         run: echo "./gradlew assemble${{ github.event.inputs.build_variant }} appDistributionUpload${{ github.event.inputs.build_variant }}"
 
