@@ -33,12 +33,12 @@ jobs:
       # Runs a single command using the runners shell
       - name: test workflow
         run: echo "./gradlew assemble${{ github.event.inputs.build_variant }} appDistributionUpload${{ github.event.inputs.build_variant }}"
-      
+
+      - name: Build with Gradle
+          run: ./gradlew assemble${{ github.event.inputs.build_variant }} appDistributionUpload${{ github.event.inputs.build_variant }}
           
           
           
           
           
-          
-          
-          echo test, and deploy your project.
+
