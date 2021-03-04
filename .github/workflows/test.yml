@@ -16,7 +16,7 @@ on:
       build_variant:
         description: ''
         required: false
-        default: 'InternalPreRelease'
+        default: 'InternalDebug'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
