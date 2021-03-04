@@ -35,7 +35,7 @@ jobs:
         run: echo "./gradlew assemble${{ github.event.inputs.build_variant }} appDistributionUpload${{ github.event.inputs.build_variant }}"
 
       - name: Build with Gradle
-          run: ./gradlew assemble${{ github.event.inputs.build_variant }}
+        run: ./gradlew assembleInternalDebug
           
           
           
