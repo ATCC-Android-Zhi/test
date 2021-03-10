@@ -37,6 +37,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        hello {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
     flavorDimensions "test"
     def configMap = new HashMap<String, Map>()
@@ -47,6 +51,9 @@ android {
         }
 
         product {
+        }
+
+        autoTest{
         }
     }
     compileOptions {
