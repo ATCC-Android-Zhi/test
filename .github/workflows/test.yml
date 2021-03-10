@@ -54,11 +54,15 @@ jobs:
       - name: test workflow
         run: echo "./gradlew assemble${{ github.event.inputs.build_variant }} appDistributionUpload${{ github.event.inputs.build_variant }}"
 
-      - name: Build with Gradle with no inputs
-        if: ${{ github.event.inputs.build_variant == null || github.event.inputs.build_variant == ''}}
-        run: ./gradlew assembleInternalDebug
+#      - name: Build with Gradle with no inputs
+#        if: ${{ github.event.inputs.build_variant == null || github.event.inputs.build_variant == ''}}
+#        run: ./gradlew assembleInternalDebug
 
-      - name: Build with Gradle with inputs
-        if: ${{ github.event.inputs.build_variant != null && github.event.inputs.build_variant != ''}}
-        run: ./gradlew "assemble${{ github.event.inputs.build_variant }}" "assembleInternalDebug"
+      - name: Build with Gradle
+        run: |
+          if ${{ github.event.inputs.build_variant != null && github.event.inputs.build_variant != ''}}; then
+            ./gradlew "assemble${{ github.event.inputs.build_variant }}" "assembleInternalDebug"
+          else
+            ./gradlew assembleInternalDebug
+          fi
 
