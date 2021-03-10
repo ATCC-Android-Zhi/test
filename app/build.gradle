@@ -53,7 +53,7 @@ android {
         product {
         }
 
-        test{
+        autoTest{
         }
     }
     compileOptions {
