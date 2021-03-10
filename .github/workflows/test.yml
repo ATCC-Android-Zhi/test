@@ -66,4 +66,4 @@ jobs:
             ./gradlew assembleInternalDebug
           fi
       - name: Build with Gradle with no inputs
-        run: ./gradlew assembleInternalDebug
+        run: ./gradlew assembleRelease
