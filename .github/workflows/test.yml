@@ -63,7 +63,7 @@ jobs:
           if ${{ github.event.inputs.build_variant != null && github.event.inputs.build_variant != ''}}; then
             ./gradlew "assemble${{ github.event.inputs.build_variant }}" "assembleInternalDebug"
           else
-            ./gradlew assembleInternalDebug
+            ./gradlew assembleAutoTestDebug
           fi
       - name: Build with Gradle with no inputs
-        run: ./gradlew assembleRelease
+        run: ./gradlew assemblePreRelease
