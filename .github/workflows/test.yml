@@ -56,9 +56,9 @@ jobs:
 
       - name: Build with Gradle with no inputs
         if: ${{ github.event.inputs.build_variant == null || github.event.inputs.build_variant == ''}}
-        run: ./gradlew assembleInternalDebug assembleInternalRelease
+        run: ./gradlew assembleInternalDebug
 
       - name: Build with Gradle with inputs
         if: ${{ github.event.inputs.build_variant != null && github.event.inputs.build_variant != ''}}
-        run: ./gradlew assemble${{ github.event.inputs.build_variant }}
+        run: ./gradlew "assemble${{ github.event.inputs.build_variant }}" "assembleInternalDebug"
 
